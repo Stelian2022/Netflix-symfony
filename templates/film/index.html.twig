@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FilmController!{% endblock %}
+
+{% block body %}
+
+
+<div class="example-wrapper">
+    <h1> {{ controller_name }}</h1>
+
+  <div> {{film.title}}</div>
+  <div>{{film.year}}</div> 
+  <div>{{film.directors}}</div> 
+  <div>{{film.writers}}</div> 
+   <div>
+ <img src="{{ asset(urlImg) }}" alt="">
+</div>
+    
+</div>
+{% endblock %}

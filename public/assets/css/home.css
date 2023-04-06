@@ -1,0 +1,21 @@
+.filmContainer{
+    display: flex;
+  
+    flex-wrap: nowrap;
+    width:100%;
+overflow-x: scroll;
+}
+.film{
+    color: white;
+    min-width: 18rem;
+    max-width: 18rem;
+}
+.filmTitle{
+    height: 5rem;
+    overflow: hidden;
+}
+.fantasy{
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+}
