@@ -1,6 +1,4 @@
+const jsFilmFantasy = JSON.parse(document.querySelector(".filmContainer").dataset.jsfilmfantasy);
 
-const filmContainer=document.querySelector(".filmContainer");
-const jsFilmFantasy=JSON.parse(filmContainer.dataset.jsfilmFantasy);
 
 console.dir(jsFilmFantasy);
-console.dir(JSON.parse(filmContainer.dataset.jsfilmFantasy));

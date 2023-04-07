@@ -39,42 +39,42 @@ class MoviesFullRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return MoviesFull[] Returns an array of MoviesFull objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('m.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('u.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    //    /**
+    //     * @return MoviesFull[] Returns an array of MoviesFull objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('u')
+    //            ->andWhere('m.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('u.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
 
-//    public function findOneBySomeField($value): ?MoviesFull
-//    {
-//        return $this->createQueryBuilder('m')
-//            ->andWhere('m.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
-// public function findRandom($param): ?MoviesFull
+    //    public function findOneBySomeField($value): ?MoviesFull
+    //    {
+    //        return $this->createQueryBuilder('m')
+    //            ->andWhere('m.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
+    // public function findRandom($param): ?MoviesFull
 
-// {
-//     return $this->createQueryBuilder('m')
-//     ->orderBy('RAND()')
-//     ->setMaxResults($param)
-//     ->getQuery()
-//     ->getOneOrNullResult()
-//     ;
-   
-// }
-public function findByGenres($genre)
+    // {
+    //     return $this->createQueryBuilder('m')
+    //     ->orderBy('RAND()')
+    //     ->setMaxResults($param)
+    //     ->getQuery()
+    //     ->getOneOrNullResult()
+    //     ;
+
+    // }
+    public function findByGenres($genre)
     {
         return $this->createQueryBuilder('m')
             ->andWhere('m.genres LIKE :genre')
@@ -82,5 +82,21 @@ public function findByGenres($genre)
             ->getQuery()
             ->getResult();
     }
+    public function findRand($nb)
+    {
+        return $this->createQueryBuilder('m')
+            ->addSelect('RAND() as HIDDEN rand')
+            ->orderBy('rand')
+            ->setMaxResults($nb)
+            ->getQuery()
+            ->getResult();
+    }
 
+    public function findGenres()
+    {
+        return $this->createQueryBuilder('m')
+            ->select('DISTINCT m.genres')
+            ->getQuery()
+            ->getResult();
+    }
 }
